@@ -897,65 +897,70 @@ spd_ ## bus ## _ ## index: spd@addr,4cc5118 ## index ## 000 { \
 
 &i3c0 {
 	status = "okay";
-	jdec-spd;
-	/* Renesas IMX3102 multiplexer w/ thermal sensor */
-	imx3102_0: i3cmux@0f,4cc31020000 {
-		reg = <0x0f 0x4cc 0x31020000>;
-		assigned-address = <0x0f>;
-		dcr = <0xd1>;
-		bcr = <0x6>;
-	};
-
-	JESD300_SPD_I3C_MODE(0, 0, 50);
-	JESD300_SPD_I3C_MODE(0, 1, 51);
+	secondary;
 };
 
-&i3c1 {
-	status = "okay";
-	jdec-spd;
-	/* Renesas IMX3102 multiplexer w/ thermal sensor */
-	imx3102_1: i3cmux@0f,4cc31020000 {
-		reg = <0x0f 0x4cc 0x31020000>;
-		assigned-address = <0x0f>;
-		dcr = <0xd1>;
-		bcr = <0x6>;
-	};
+// &i3c0 {
+// 	status = "okay";
+// 	jdec-spd;
+// 	/* Renesas IMX3102 multiplexer w/ thermal sensor */
+// 	imx3102_0: i3cmux@0f,4cc31020000 {
+// 		reg = <0x0f 0x4cc 0x31020000>;
+// 		assigned-address = <0x0f>;
+// 		dcr = <0xd1>;
+// 		bcr = <0x6>;
+// 	};
 
-	JESD300_SPD_I3C_MODE(1, 0, 50);
-	JESD300_SPD_I3C_MODE(1, 1, 51);
-};
+// 	JESD300_SPD_I3C_MODE(0, 0, 50);
+// 	JESD300_SPD_I3C_MODE(0, 1, 51);
+// };
 
-&i3c2 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i3c3_default>;
+// &i3c1 {
+// 	status = "okay";
+// 	jdec-spd;
+// 	/* Renesas IMX3102 multiplexer w/ thermal sensor */
+// 	imx3102_1: i3cmux@0f,4cc31020000 {
+// 		reg = <0x0f 0x4cc 0x31020000>;
+// 		assigned-address = <0x0f>;
+// 		dcr = <0xd1>;
+// 		bcr = <0x6>;
+// 	};
 
-	jdec-spd;
-	/* Renesas IMX3102 multiplexer w/ thermal sensor */
-	i3cmux@f {
-		compatible = "eeprom";
-		reg = <0xf 0x0 0x00000000>;
-	};
+// 	JESD300_SPD_I3C_MODE(1, 0, 50);
+// 	JESD300_SPD_I3C_MODE(1, 1, 51);
+// };
 
-	JESD300_SPD_I2C_MODE(2, 0, 52);
-	JESD300_SPD_I2C_MODE(2, 1, 53);
-};
+// &i3c2 {
+// 	status = "okay";
+// 	pinctrl-names = "default";
+// 	pinctrl-0 = <&pinctrl_i3c3_default>;
 
-&i3c3 {
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_i3c4_default>;
+// 	jdec-spd;
+// 	/* Renesas IMX3102 multiplexer w/ thermal sensor */
+// 	i3cmux@f {
+// 		compatible = "eeprom";
+// 		reg = <0xf 0x0 0x00000000>;
+// 	};
 
-	jdec-spd;
-	/* Renesas IMX3102 multiplexer w/ thermal sensor */
-	i3cmux@f {
-		compatible = "eeprom";
-		reg = <0xf 0x0 0x00000000>;
-	};
+// 	JESD300_SPD_I2C_MODE(2, 0, 52);
+// 	JESD300_SPD_I2C_MODE(2, 1, 53);
+// };
 
-	JESD300_SPD_I2C_MODE(3, 0, 52);
-	JESD300_SPD_I2C_MODE(3, 1, 53);
-};
+// &i3c3 {
+// 	status = "okay";
+// 	pinctrl-names = "default";
+// 	pinctrl-0 = <&pinctrl_i3c4_default>;
+
+// 	jdec-spd;
+// 	/* Renesas IMX3102 multiplexer w/ thermal sensor */
+// 	i3cmux@f {
+// 		compatible = "eeprom";
+// 		reg = <0xf 0x0 0x00000000>;
+// 	};
+
+// 	JESD300_SPD_I2C_MODE(3, 0, 52);
+// 	JESD300_SPD_I2C_MODE(3, 1, 53);
+// };
 
 /*
  * I3C loopback: connect I3C4 (slave) to I3C5 (master)
@@ -966,14 +971,14 @@ spd_ ## bus ## _ ## index: spd@addr,4cc5118 ## index ## 000 { \
  *                  i3c-5 controller.  In this case, 5-7ec05034000 maps to the
  *                  physical device i3c4.
  */
-&i3c4 {
-	status = "okay";
-	secondary;
-};
+// &i3c4 {
+// 	status = "okay";
+// 	secondary;
+// };
 
-&i3c5 {
-	status = "okay";
-};
+// &i3c5 {
+// 	status = "okay";
+// };
 
 &ssp {
 	memory-region = <&ssp_memory>;
