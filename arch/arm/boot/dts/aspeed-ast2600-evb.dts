@@ -924,21 +924,6 @@ spd_ ## bus ## _ ## index: spd@addr,4cc5118 ## index ## 000 { \
 	bcr = <0x6>; \
 }
 
-&i3c0 {
-	status = "okay";
-	jdec-spd;
-	/* Renesas IMX3102 multiplexer w/ thermal sensor */
-	imx3102_0: i3cmux@0f,4cc31020000 {
-		reg = <0x0f 0x4cc 0x31020000>;
-		assigned-address = <0x0f>;
-		dcr = <0xd1>;
-		bcr = <0x6>;
-	};
-
-	JESD300_SPD_I3C_MODE(0, 0, 50);
-	JESD300_SPD_I3C_MODE(0, 1, 51);
-};
-
 &i3c1 {
 	status = "okay";
 	jdec-spd;

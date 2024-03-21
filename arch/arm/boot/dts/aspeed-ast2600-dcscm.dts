@@ -377,11 +377,6 @@
 &i3c0 {
 	status = "okay";
 	secondary;
-
-	/delete-property/ jdec-spd;
-	/delete-node/ i3cmux@0f,4cc31020000;
-	/delete-node/ spd@50,4cc51180000;
-	/delete-node/ spd@51,4cc51181000;
 };
 
 &i3c1 {
